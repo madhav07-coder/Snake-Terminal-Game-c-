@@ -2,17 +2,6 @@
 
 #include <bits/stdc++.h>
 #include <conio.h> // For _kbhit() and _getch()         
-/*_                                                             khbit()   Checks if a key has been pressed.
-                                                    Returns nonzero (true) if a key is pressed, otherwise returns 0 (false).
-                                                            Does not remove the key from the input buffer.*/
-
-                                                            /*
-                                                            _getch()
-                                                            Reads a single character from the keyboard without displaying it on the screen.
-                                                                        Does not require Enter to be pressed.
-                                                                        Returns the ASCII value of the key pressed.
-                                                                        Commonly used in games for real-time keyboard input.
-                                                            */
 #include <thread>  // For sleep functionality     
 #include <chrono>  // For time intervals  time related badhu kaam kare aa
 #include <fstream> // For file handling (high score)
