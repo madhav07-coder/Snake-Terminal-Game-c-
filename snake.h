@@ -2,8 +2,6 @@
 #define SNAKE_H
 
 #include <bits/stdc++.h>
-//#include <deque>    // For std::deque
-//#include <utility>  // For std::pair
 
 using namespace std;
 
