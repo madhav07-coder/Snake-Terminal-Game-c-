@@ -2,8 +2,6 @@
 #define FOOD_H
 
 #include <bits/stdc++.h>
-//#include <utility>  // For std::pair
-//#include <deque>    // For std::deque
 #include <cstdlib>  // For rand() function use
 #include <ctime>    // For srand() function use
 
