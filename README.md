@@ -116,7 +116,7 @@ void runGame(); // The main game loop
 - In multiplayer mode, the game ends if either snake collides with itself, the wall, or the opponent.
 
 ## 🎯 Conclusion
-This C++ Snake game provides an interactive console-based gaming experience with multiple modes and difficulty levels. It serves as an excellent project for learning object-oriented programming and handling real-time user input in C++.
+This C++ Snake game provides an interactive terminal-based gaming experience with multiple modes and difficulty levels with single player and multiplayer playing options.
 
 ---
 
