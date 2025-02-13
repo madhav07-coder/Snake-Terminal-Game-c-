@@ -421,7 +421,7 @@ void GameBoard::runGame()
             {
                 snake2.setGrowing(true); 
                 food.spawnFood(snake2.getBody()); 
-                score += 10; 
+                score += 1; 
                 increaseDifficulty();
             }
 
