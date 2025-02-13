@@ -5,13 +5,12 @@
 #include <thread>  // For sleep functionality     
 #include <chrono>  // For time intervals  time related badhu kaam kare aa
 #include <fstream> // For file handling (high score)
-//#include <string>  // For username
 
 using namespace std;
 
 // Constructor: Initialize the board
 GameBoard::GameBoard(int gridSize)
-    : gridSize(gridSize), snake1(gridSize / 2, gridSize / 2), snake2(gridSize / 2, gridSize / 2 - 5), food(gridSize), score(0), isPaused(false), delay(200), isMultiplayer(false), snake1Symbol('O'), snake2Symbol('X') 
+    : gridSize(gridSize), snake1(gridSize / 2, gridSize / 2, gridSize), snake2(gridSize / 2, gridSize / 2 - 5, gridSize), food(gridSize), score(0), isPaused(false), delay(200), isMultiplayer(false), snake1Symbol('O'), snake2Symbol('X') 
 {
     loadHighScore();    // Load the high score from file je aapne text file save kari hati
     selectPlayerMode(); //  single player ke multiplayer select karva
@@ -243,7 +242,7 @@ void GameBoard::updateGrid()
 
     // Place the food
     auto foodPos = food.getPosition();
-    grid[foodPos.first][foodPos.second] = '*'; // * Food che
+    grid[foodPos.first][foodPos.second] = 'O'; // O Food che
 }
 
 // Renders kare
@@ -280,11 +279,10 @@ bool GameBoard::checkCollision() const {
     auto head2 = snake2.getBody().back();
 
     // Check boundary collision for snake 1
-    if (head1.first < 0 || head1.first >= gridSize || head1.second < 0 || head1.second >= gridSize)  // grid ni bahar che ke nahi te check
+   if (head1.first < 0 || head1.first >= gridSize || head1.second < 0 || head1.second >= gridSize)  // grid ni bahar che ke nahi te check
     {
         return true;
     }
-
     // Check self-collision for snake 1
     if (snake1.checkSelfCollision()) 
     {
@@ -330,22 +328,22 @@ bool GameBoard::checkCollision() const {
 void GameBoard::handleInput() {
     if (_kbhit()) { // Check if a key is pressed
         char key = _getch();
-        if (key == ('w'||'W') && !isPaused) snake1.setDirection('U');
-        else if (key == ('s'||'S') && !isPaused) snake1.setDirection('D');
-        else if (key == ('a'||'A') && !isPaused) snake1.setDirection('L');
-        else if (key == ('d'||'D') && !isPaused) snake1.setDirection('R');
-        else if (key == ('i'||'I') && !isPaused && isMultiplayer) snake2.setDirection('U');
-        else if (key == ('k'||'K') && !isPaused && isMultiplayer) snake2.setDirection('D');
-        else if (key == ('j'||'J') && !isPaused && isMultiplayer) snake2.setDirection('L');
-        else if (key == ('l'||'L') && !isPaused && isMultiplayer) snake2.setDirection('R');
-        else if (key == ('p'||'P')) {
+        if ((key == 'w'|| key=='W') && !isPaused) snake1.setDirection('U');
+        else if ((key == 's'|| key=='S') && !isPaused) snake1.setDirection('D');
+        else if ((key == 'a'|| key=='A') && !isPaused) snake1.setDirection('L');
+        else if ((key == 'd'|| key=='D') && !isPaused) snake1.setDirection('R');
+        else if ((key == 'i'|| key=='I') && !isPaused && isMultiplayer) snake2.setDirection('U');
+        else if ((key == 'k'|| key=='K') && !isPaused && isMultiplayer) snake2.setDirection('D');
+        else if ((key == 'j'|| key=='J') && !isPaused && isMultiplayer) snake2.setDirection('L');
+        else if ((key == 'l'|| key=='L') && !isPaused && isMultiplayer) snake2.setDirection('R');
+        else if (key == 'p' || key == 'P') {
             isPaused = !isPaused; // Toggle pause
             if (isPaused) {
                 cout << "Game Paused. Press 'P' to Resume." << endl;
             } else {
                 cout << "Game Resumed." << endl;
             }
-        } else if (key == ('m'||'M')) {
+        } else if (key == 'm' || key == 'M') {
             showSettingsMenu(); // Show settings menu
         }
     }
