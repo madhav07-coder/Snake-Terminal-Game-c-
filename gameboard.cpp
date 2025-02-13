@@ -338,7 +338,7 @@ void GameBoard::handleInput() {
         else if (key == ('k'||'K') && !isPaused && isMultiplayer) snake2.setDirection('D');
         else if (key == ('j'||'J') && !isPaused && isMultiplayer) snake2.setDirection('L');
         else if (key == ('l'||'L') && !isPaused && isMultiplayer) snake2.setDirection('R');
-        else if (key == ('p'||'P') {
+        else if (key == ('p'||'P')) {
             isPaused = !isPaused; // Toggle pause
             if (isPaused) {
                 cout << "Game Paused. Press 'P' to Resume." << endl;
