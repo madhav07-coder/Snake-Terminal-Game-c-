@@ -3,7 +3,7 @@
 using namespace std;
 
 // Constructor: Initialize the snake with one segment at the starting position
-Snake::Snake(int startX, int startY) : isGrowing(false) 
+Snake::Snake(int startX, int startY,int gridSize) : isGrowing(false) , gridSize(gridSize)
 {
     body.push_back({startX, startY - 2}); // Tail
     body.push_back({startX, startY - 1}); // Middle segment
