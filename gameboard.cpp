@@ -330,22 +330,22 @@ bool GameBoard::checkCollision() const {
 void GameBoard::handleInput() {
     if (_kbhit()) { // Check if a key is pressed
         char key = _getch();
-        if (key == 'w' && !isPaused) snake1.setDirection('U');
-        else if (key == 's' && !isPaused) snake1.setDirection('D');
-        else if (key == 'a' && !isPaused) snake1.setDirection('L');
-        else if (key == 'd' && !isPaused) snake1.setDirection('R');
-        else if (key == 'i' && !isPaused && isMultiplayer) snake2.setDirection('U');
-        else if (key == 'k' && !isPaused && isMultiplayer) snake2.setDirection('D');
-        else if (key == 'j' && !isPaused && isMultiplayer) snake2.setDirection('L');
-        else if (key == 'l' && !isPaused && isMultiplayer) snake2.setDirection('R');
-        else if (key == 'p') {
+        if (key == ('w'||'W') && !isPaused) snake1.setDirection('U');
+        else if (key == ('s'||'S') && !isPaused) snake1.setDirection('D');
+        else if (key == ('a'||'A') && !isPaused) snake1.setDirection('L');
+        else if (key == ('d'||'D') && !isPaused) snake1.setDirection('R');
+        else if (key == ('i'||'I') && !isPaused && isMultiplayer) snake2.setDirection('U');
+        else if (key == ('k'||'K') && !isPaused && isMultiplayer) snake2.setDirection('D');
+        else if (key == ('j'||'J') && !isPaused && isMultiplayer) snake2.setDirection('L');
+        else if (key == ('l'||'L') && !isPaused && isMultiplayer) snake2.setDirection('R');
+        else if (key == ('p'||'P') {
             isPaused = !isPaused; // Toggle pause
             if (isPaused) {
                 cout << "Game Paused. Press 'P' to Resume." << endl;
             } else {
                 cout << "Game Resumed." << endl;
             }
-        } else if (key == 'm') {
+        } else if (key == ('m'||'M')) {
             showSettingsMenu(); // Show settings menu
         }
     }
